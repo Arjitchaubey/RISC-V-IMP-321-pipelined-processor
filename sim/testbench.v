@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 
-
 // Module: riscv_processor_tb (Test Bench)
 module riscv_processor_tb;
 
@@ -53,11 +52,11 @@ module riscv_processor_tb;
      
         // Print header for the table
         $display("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        $display("Time | IF_PC    | ID_Instr | ID_RS1 | ID_RS2 | ID_RD | EX_ALU_Op1 | EX_ALU_Op2 | EX_ALU_Control | EX_ALU_Result | EX_Store_Data | MEM_Read_Data | WB_Write_Data | MEM_MemWrite | WB_RegWrite | Hazard_PC_En | Hazard_IF_ID_En | Hazard_IF_ID_Flush | Hazard_ID_EX_Flush | Hazard_Branch_Taken | Hazard_Branch_Resolved");
-        $display("-----|----------|----------|--------|--------|-------|------------|------------|----------------|---------------|---------------|---------------|---------------|--------------|-------------|--------------|-----------------|--------------------|--------------------|---------------------|----------------------");
+        $display("Time | IF_PC    | ID_Instr | ID_RS1 | ID_RS2 | ID_RD | EX_ALU_Op1 | EX_ALU_Op2 | EX_ALU_Control | EX_ALU_Result | EX_Store_Data | MEM_Read_Data | WB_Write_Data | MEM_MemWrite | WB_RegWrite | ");
+        $display("-----|----------|----------|--------|--------|-------|------------|------------|----------------|---------------|---------------|---------------|---------------|--------------|-------------|");
 
         // The $monitor statement
-        $monitor("%4d | %8h | %8h | %6d | %6d | %5d | %10h | %10h | %14b | %13h | %13h | %13h | %13h | %12b | %11b | %12b | %15b | %18b | %18b | %19b | %20b",
+        $monitor("%4d | %8h | %8h | %6d | %6d | %5d | %10h | %10h | %14b | %13h | %13h | %13h | %13h | %12b | %11b",
                  $time,
                  dut.if_pc,                                 // PC of instruction currently being fetched (IF Stage)
                  dut.id_instruction,                        // Instruction currently in ID stage
@@ -73,12 +72,6 @@ module riscv_processor_tb;
                  dut.wb_write_data,                         // Final data to be written to RegFile for instruction in WB stage
                  dut.mem_mem_write,                         // Memory Write Enable for instruction in MEM stage
                  dut.wb_reg_write_en,                       // Register Write Enable for instruction in WB stage
-                 dut.hazard_detection.pc_write_en,          // PC Write Enable from Hazard Unit
-                 dut.hazard_detection.if_id_enable,         // IF/ID Enable from Hazard Unit
-                 dut.hazard_detection.if_id_flush,          // IF/ID Flush from Hazard Unit
-                 dut.hazard_detection.id_ex_flush,          // ID/EX Flush from Hazard Unit
-                 dut.hazard_detection.ex_branch_taken,      // Branch Taken from Hazard Unit
-                 dut.hazard_detection.ex_branch_resolved    // Branch Resolved from Hazard Unit
                 );
 
         // The program has 6 instructions, plus pipeline fill/drain.
