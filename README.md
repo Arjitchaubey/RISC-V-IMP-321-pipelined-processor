@@ -72,8 +72,8 @@ along with modeling a testbench to simulate the data flow in my processor.
 Clone or Download the Repository
 
 ```bash
-git clone https://github.com/Arjitchaubey/RISC_V_IMP_321_pipelined_processor.git
-cd RISC_V_IMP_321_pipelined_processor
+git clone https://github.com/Arjitchaubey/RISC-V-IMP-321-pipelined-processor.git
+cd RISC-V-IMP-321-pipelined-processor
 ```
 
 I have synthesized and implemented my processor using a Kintex 7 FPGA in vivado
