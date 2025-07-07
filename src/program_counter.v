@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 // PROGRAM COUNTER LOGIC
 // This module manages the Program Counter (PC), which holds the address of the
 // instruction to be fetched next. It supports synchronous updates and reset.
