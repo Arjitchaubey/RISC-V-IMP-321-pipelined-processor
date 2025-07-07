@@ -1,3 +1,4 @@
+```
 Power Report
 
 Table of Contents
@@ -137,5 +138,8 @@ Table of Contents
 |   mem_wb_reg     |     0.005 |
 |   rf             |     0.004 |
 +------------------+-----------+
+```
+
+![image](https://github.com/user-attachments/assets/2674b9a1-38da-4c57-9bff-88cfc966a60d)
 
 
