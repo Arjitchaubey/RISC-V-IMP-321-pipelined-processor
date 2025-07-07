@@ -1,17 +1,35 @@
 `timescale 1ns / 1ps
 
+
 // Module: riscv_processor_tb (Test Bench)
 module riscv_processor_tb;
 
     // Clock and Reset signals
     reg clk;
     reg rst;
+    reg output_en;
+    wire [7:0] pc_out;   //Current program counter
+    wire [7:0] instr_out;        //current instruction in ID stage
+    wire [7:0] alu_out;          //ALU result in the EX stage
+    wire [7:0] reg_x1;           //Register X1 (for debug)
+    wire [7:0] reg_x2;           //Register x2 (for debug)
+    wire [7:0] mem_data_out;     //Data memory output (read data)
+  
+    
 
     // Instantiate the RISC-V Processor
     RISC_V_PROCESSOR dut (
         .clk(clk),
-        .rst(rst)
+        .rst(rst),
+        .output_en(output_en),
+        .pc_out(pc_out),
+        .instr_out(instr_out),
+        .alu_out(alu_out),
+        .reg_x1(reg_x1),
+        .reg_x2(reg_x2),
+        .mem_data_out(mem_data_out)
     );
+    
     integer r; // Loop variable for displaying register file
     // Clock generation: 10ns period (5ns high, 5ns low)
     initial begin
@@ -26,17 +44,13 @@ module riscv_processor_tb;
         #10;        // Hold reset for 10ns (2 clock half-cycles)
         rst = 1'b1; // Release reset
         #10;        // Allow one full clock cycle for reset to propagate and pipeline to clear
+        output_en = 1'b0;
+        #12;
+        output_en = 1'b1;       //Assert the output enable line for output display
 
         // ====================================================================
         // Monitor Setup for Table-like Output
-        //
-        // This $monitor statement will print a new line whenever any of the
-        // monitored signals change. The signals are chosen to represent key
-        // values from each pipeline stage at the current simulation time.
-        // Note that at any given time, these signals belong to different
-        // instructions in the pipeline.
-        // ====================================================================
-
+     
         // Print header for the table
         $display("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         $display("Time | IF_PC    | ID_Instr | ID_RS1 | ID_RS2 | ID_RD | EX_ALU_Op1 | EX_ALU_Op2 | EX_ALU_Control | EX_ALU_Result | EX_Store_Data | MEM_Read_Data | WB_Write_Data | MEM_MemWrite | WB_RegWrite | Hazard_PC_En | Hazard_IF_ID_En | Hazard_IF_ID_Flush | Hazard_ID_EX_Flush | Hazard_Branch_Taken | Hazard_Branch_Resolved");
@@ -68,7 +82,7 @@ module riscv_processor_tb;
                 );
 
         // The program has 6 instructions, plus pipeline fill/drain.
-        // We'll run for 50 cycles (500ns) to observe full pipeline behavior.
+        // We'll run for 70 cycles (700ns) to observe full pipeline behavior.
         #700; // Run for 700ns (70 clock cycles)
 
 
