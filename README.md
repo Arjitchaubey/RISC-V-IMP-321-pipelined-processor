@@ -86,3 +86,6 @@ My program.hex file consists of the following instructions
 00302023  // SW   x3, 0(x0)
 00002203  // LW   x4, 0(x0)
 0000006F  // J    0 (infinite loop or halt)
+```
+
+The Utilization, Power and Timing reports and reference screenshots are placed in the respective synthesis and implementation folders/files
