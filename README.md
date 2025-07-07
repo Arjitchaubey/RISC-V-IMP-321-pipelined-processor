@@ -75,6 +75,7 @@ Clone or Download the Repository
 git clone https://github.com/Arjitchaubey/RISC-V-IMP-321-pipelined-processor.git
 cd RISC-V-IMP-321-pipelined-processor
 ```
+Both, the individual codes for each module and the tcl file have been placed the respective files/folders of the repository.
 
 I have synthesized and implemented my processor using a Kintex 7 FPGA in vivado
 
@@ -88,4 +89,4 @@ My program.hex file consists of the following instructions
 0000006F  // J    0 (infinite loop or halt)
 ```
 
-The Utilization, Power and Timing reports and reference screenshots are placed in the respective synthesis and implementation folders/files
+The Utilization, Power and Timing reports and reference screenshots are placed in the respective synthesis and implementation file/filders of the repository
