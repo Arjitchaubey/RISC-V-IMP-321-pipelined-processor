@@ -1,3 +1,4 @@
+```
 ---------------------------------------------------------------------------------
 Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1023.441 ; gain = 469.523
 ---------------------------------------------------------------------------------
@@ -63,3 +64,4 @@ Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Me
 Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1600.082 ; gain = 0.000
 synth_design: Time (s): cpu = 00:01:09 ; elapsed = 00:01:19 . Memory (MB): peak = 1600.082 ; gain = 1230.066
 Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1600.082 ; gain = 0.000
+```
